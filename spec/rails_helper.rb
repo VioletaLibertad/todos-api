@@ -22,7 +22,7 @@ require 'database_cleaner'
 # directory. Alternatively, in the individual `*_spec.rb` files, manually
 # require only the support files necessary.
 #
-# Dir[Rails.root.join('spec', 'support', '**', '*.rb')].each { |f| require f }
+Dir[Rails.root.join('spec', 'support', '**', '*.rb')].each { |f| require f }
 
 Shoulda::Matchers.configure do |config|
   config.integrate do |with|
@@ -51,6 +51,8 @@ RSpec.configure do |config|
 
   # Add `FactoryBot` methods
   config.include FactoryBot::Syntax::Methods
+
+  config.include RequestSpecHelper, type: :request
 
   #Start by truncation all the tables but then use the faster transaction strategy the rest of the time. 
   config.before(:suite) do
