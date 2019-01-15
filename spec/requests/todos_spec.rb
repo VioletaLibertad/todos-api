@@ -101,7 +101,7 @@ RSpec.describe 'Todos API', type: :request do
     before { delete "/todos/#{todo_id}" }
 
     it 'returns status code 204' do
-      expect(repsonse).to have_http_status(204)
+      expect(response).to have_http_status(204)
     end
   end
 end
